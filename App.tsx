@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -5,114 +6,79 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
+import * as React from 'react';
+import {Pressable, SafeAreaView, Text, View} from 'react-native';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+  Container,
+  ConversationDetail,
+  TextInput,
+  useChatContext,
+} from 'react-native-chat-uikit';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+function SendMessage() {
+  // 0. Login
+  // 1. Send message
+  const [page, setPage] = React.useState(0);
+  const im = useChatContext();
+  const userId = 'du004';
+  const userPs = '1';
+  const peerId = 'du005';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
+  if (page === 0) {
+    return (
+      <SafeAreaView style={{flex: 1}}>
+        <TextInput placeholder="Please Login ID." />
+        <TextInput placeholder="Please Login token or password." />
+        <Pressable
+          onPress={() => {
+            im.login({
+              userId: userId,
+              userToken: userPs,
+              usePassword: true,
+              result: res => {
+                console.log('login result', res);
+                if (res.isOk === true) {
+                  setPage(1);
+                }
+              },
+            });
+          }}>
+          <Text>{'Login'}</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => {
+            im.logout({
+              result: () => {},
+            });
+          }}>
+          <Text>{'Logout'}</Text>
+        </Pressable>
+      </SafeAreaView>
+    );
+  } else if (page === 1) {
+    return (
+      <SafeAreaView style={{flex: 1}}>
+        <ConversationDetail
+          convId={peerId}
+          convType={0}
+          onBack={() => {
+            setPage(0);
+          }}
+        />
+      </SafeAreaView>
+    );
+  } else {
+    return <View />;
+  }
 }
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+  const appKey = 'easemob#easeim';
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Container options={{appKey: appKey}}>
+      <SendMessage />
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
