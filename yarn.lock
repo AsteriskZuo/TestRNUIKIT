@@ -1197,6 +1197,11 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@easemob/react-native-create-thumbnail@^1.6.6":
+  version "1.6.6"
+  resolved "https://registry.npmjs.org/@easemob/react-native-create-thumbnail/-/react-native-create-thumbnail-1.6.6.tgz#dc207de637b0747ae9b12d180b3352468ec60fd4"
+  integrity sha512-TBXRfmrISmwwwLb3IvkoUtkWVkp3dzte2hvSmSWW6KDsAJdlG4fDD5pHVXFsWOBJ7taMSi4TPaJw2IIN3iZ4Hw==
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.npmjs.org/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
@@ -6020,11 +6025,6 @@ react-native-chat-sdk@1.3.1-beta.2:
 
 "react-native-chat-uikit@file:../package":
   version "1.2.0"
-
-react-native-create-thumbnail@^1.6.4:
-  version "1.6.4"
-  resolved "https://registry.npmjs.org/react-native-create-thumbnail/-/react-native-create-thumbnail-1.6.4.tgz#90f5b0a587de6e3738a7632fe3d9a9624ed83581"
-  integrity sha512-JWuKXswDXtqUPfuqh6rjCVMvTSSG3kUtwvSK/YdaNU0i+nZKxeqHmt/CO2+TyI/WSUFynGVmWT1xOHhCZAFsRQ==
 
 react-native-device-info@^10.6.0:
   version "10.12.0"
