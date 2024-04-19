@@ -22,6 +22,7 @@ const peerId = 'du005';
 
 function SendMessage() {
   const [page, setPage] = React.useState(0);
+  const [appkey, setAppkey] = React.useState(appKey);
   const [id, setId] = React.useState(userId);
   const [ps, setPs] = React.useState(userPs);
   const [peer, setPeer] = React.useState(peerId);
@@ -30,6 +31,11 @@ function SendMessage() {
   if (page === 0) {
     return (
       <SafeAreaView style={{flex: 1}}>
+        <TextInput
+          placeholder="Please App Key."
+          value={appkey}
+          onChangeText={setAppkey}
+        />
         <TextInput
           placeholder="Please Login ID."
           value={id}
@@ -81,7 +87,11 @@ function SendMessage() {
           convType={0}
           onBack={() => {
             setPage(0);
+            im.logout({
+              result: () => {},
+            });
           }}
+          type={'chat'}
         />
       </SafeAreaView>
     );
@@ -92,7 +102,7 @@ function SendMessage() {
 
 function App(): React.JSX.Element {
   return (
-    <Container options={{appKey: appKey}}>
+    <Container options={{appKey: appKey, autoLogin: false}}>
       <SendMessage />
     </Container>
   );
