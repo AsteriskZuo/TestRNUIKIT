@@ -40,12 +40,6 @@ PODS:
     - React-Core (= 0.73.2)
     - React-jsi (= 0.73.2)
     - ReactCommon/turbomodule/core (= 0.73.2)
-  - FirebaseCore (10.19.0):
-    - FirebaseCoreInternal (~> 10.0)
-    - GoogleUtilities/Environment (~> 7.12)
-    - GoogleUtilities/Logger (~> 7.12)
-  - FirebaseCoreInternal (10.20.0):
-    - "GoogleUtilities/NSData+zlib (~> 7.8)"
   - Flipper (0.201.0):
     - Flipper-Folly (~> 2.6)
   - Flipper-Boost-iOSX (1.76.0.1.11)
@@ -104,39 +98,6 @@ PODS:
     - FlipperKit/FlipperKitNetworkPlugin
   - fmt (6.2.1)
   - glog (0.3.5)
-  - GoogleUtilities (7.12.0):
-    - GoogleUtilities/AppDelegateSwizzler (= 7.12.0)
-    - GoogleUtilities/Environment (= 7.12.0)
-    - GoogleUtilities/ISASwizzler (= 7.12.0)
-    - GoogleUtilities/Logger (= 7.12.0)
-    - GoogleUtilities/MethodSwizzler (= 7.12.0)
-    - GoogleUtilities/Network (= 7.12.0)
-    - "GoogleUtilities/NSData+zlib (= 7.12.0)"
-    - GoogleUtilities/Reachability (= 7.12.0)
-    - GoogleUtilities/SwizzlerTestHelpers (= 7.12.0)
-    - GoogleUtilities/UserDefaults (= 7.12.0)
-  - GoogleUtilities/AppDelegateSwizzler (7.12.0):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.12.0):
-    - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/ISASwizzler (7.12.0)
-  - GoogleUtilities/Logger (7.12.0):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.12.0):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.12.0):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.12.0)"
-  - GoogleUtilities/Reachability (7.12.0):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/SwizzlerTestHelpers (7.12.0):
-    - GoogleUtilities/MethodSwizzler
-  - GoogleUtilities/UserDefaults (7.12.0):
-    - GoogleUtilities/Logger
   - HyphenateChat (4.2.0)
   - libevent (2.1.12)
   - libwebp (1.3.2):
@@ -152,17 +113,6 @@ PODS:
   - libwebp/webp (1.3.2):
     - libwebp/sharpyuv
   - OpenSSL-Universal (1.1.1100)
-  - Permission-Camera (3.10.1):
-    - RNPermissions
-  - Permission-MediaLibrary (3.10.1):
-    - RNPermissions
-  - Permission-Microphone (3.10.1):
-    - RNPermissions
-  - Permission-Notifications (3.10.1):
-    - RNPermissions
-  - Permission-PhotoLibrary (3.10.1):
-    - RNPermissions
-  - PromisesObjC (2.4.0)
   - RCT-Folly (2022.05.16.00):
     - boost
     - DoubleConversion
@@ -1015,7 +965,7 @@ PODS:
   - react-native-chat-sdk (1.3.1):
     - HyphenateChat (= 4.2.0)
     - React-Core
-  - react-native-chat-uikit (2.0.0-beta.0):
+  - react-native-chat-uikit (2.1.0-beta.4):
     - React-Core
   - react-native-create-thumbnail (1.6.6):
     - glog
@@ -1243,7 +1193,6 @@ DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
-  - FirebaseCore
   - Flipper (= 0.201.0)
   - Flipper-Boost-iOSX (= 1.76.0.1.11)
   - Flipper-DoubleConversion (= 3.2.0.1)
@@ -1265,13 +1214,7 @@ DEPENDENCIES:
   - FlipperKit/FlipperKitUserDefaultsPlugin (= 0.201.0)
   - FlipperKit/SKIOSNetworkPlugin (= 0.201.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - GoogleUtilities
   - OpenSSL-Universal (= 1.1.1100)
-  - Permission-Camera (from `/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/Camera`)
-  - Permission-MediaLibrary (from `/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/MediaLibrary`)
-  - Permission-Microphone (from `/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/Microphone`)
-  - Permission-Notifications (from `/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/Notifications`)
-  - Permission-PhotoLibrary (from `/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/PhotoLibrary`)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
@@ -1343,8 +1286,6 @@ SPEC REPOS:
     - AgoraIrisRTC_iOS
     - AgoraRtcEngine_iOS
     - CocoaAsyncSocket
-    - FirebaseCore
-    - FirebaseCoreInternal
     - Flipper
     - Flipper-Boost-iOSX
     - Flipper-DoubleConversion
@@ -1354,12 +1295,10 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - FlipperKit
     - fmt
-    - GoogleUtilities
     - HyphenateChat
     - libevent
     - libwebp
     - OpenSSL-Universal
-    - PromisesObjC
     - SDWebImage
     - SDWebImageWebPCoder
     - SocketRocket
@@ -1376,16 +1315,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/React/FBReactNativeSpec"
   glog:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
-  Permission-Camera:
-    :path: "/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/Camera"
-  Permission-MediaLibrary:
-    :path: "/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/MediaLibrary"
-  Permission-Microphone:
-    :path: "/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/Microphone"
-  Permission-Notifications:
-    :path: "/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/Notifications"
-  Permission-PhotoLibrary:
-    :path: "/Users/asterisk/Codes/zuoyu/RNUIkitQuickStart/node_modules/react-native-permissions/ios/PhotoLibrary"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -1519,8 +1448,6 @@ SPEC CHECKSUMS:
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: fbc4957d9aa695250b55d879c1d86f79d7e69ab4
   FBReactNativeSpec: 86de768f89901ef6ed3207cd686362189d64ac88
-  FirebaseCore: dc5c7badf99d47613c52b2e3a57a64cd187f8554
-  FirebaseCoreInternal: efeeb171ac02d623bdaefe121539939821e10811
   Flipper: c7a0093234c4bdd456e363f2f19b2e4b27652d44
   Flipper-Boost-iOSX: fd1e2b8cbef7e662a122412d7ac5f5bea715403c
   Flipper-DoubleConversion: 2dc99b02f658daf147069aad9dbd29d8feb06d30
@@ -1531,17 +1458,10 @@ SPEC CHECKSUMS:
   FlipperKit: 37525a5d056ef9b93d1578e04bc3ea1de940094f
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
-  GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
   HyphenateChat: e43d1ec9ccf404eeb2ee7d3265cd12a4e83f0d3a
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
-  Permission-Camera: 9b70902f34a83c10e198d2d01f0e453e58842776
-  Permission-MediaLibrary: c49ea6e00b4919404ef4fc8e5a541628790cea5a
-  Permission-Microphone: 8d045745c0c12aed0370ba89c36b6bc1ba54d7eb
-  Permission-Notifications: 817390e18898f34adad940cd4141e771e77086ea
-  Permission-PhotoLibrary: 03c52ed95dadfb0f2ba4c7663786cce0c4e0c978
-  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: 9b1e7e262745fb671e33c51c1078d093bd30e322
   RCTTypeSafety: a759e3b086eccf3e2cbf2493d22f28e082f958e6
@@ -1566,7 +1486,7 @@ SPEC CHECKSUMS:
   react-native-agora: 248cefef82640f987f81cb15c3d4766912aedfa4
   react-native-cameraroll: 4701ae7c3dbcd3f5e9e150ca17f250a276154b35
   react-native-chat-sdk: 6b8f77b0dc49d017e77ee068036bc538b1c11ec5
-  react-native-chat-uikit: 0f8ee416f7416193518e5382cbb3f002566f2678
+  react-native-chat-uikit: cd9560f7ba6fc74b96fa77c15457566af1e9c990
   react-native-create-thumbnail: 6107f04c6ab67a787e63c56154487e8dd932b9af
   react-native-document-picker: b4f4a23b73f864ce17965b284c0757648993805b
   react-native-get-random-values: a6ea6a8a65dc93e96e24a11105b1a9c8cfe1d72a
@@ -1609,6 +1529,6 @@ SPEC CHECKSUMS:
   Yoga: 13c8ef87792450193e117976337b8527b49e8c03
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: bdd5dfe5f46f3deb2e038a57c2baba11142d679d
+PODFILE CHECKSUM: 6299dfd4ede0eace30c36eb38c28259757507621
 
 COCOAPODS: 1.14.2
