@@ -9,11 +9,11 @@
 import * as React from 'react';
 import {Pressable, SafeAreaView, Text, View} from 'react-native';
 import {
-  Container,
-  ConversationDetail,
+  GlobalContainer as UIKitContainer,
+  ChatFragment,
   TextInput,
-  useChatContext,
-} from 'react-native-chat-uikit';
+  useChatSdkContext,
+} from 'react-native-agora-chat-uikit';
 
 const appKey = 'easemob#easeim';
 const userId = 'du004';
@@ -25,7 +25,7 @@ function SendMessage() {
   const [id, setId] = React.useState(userId);
   const [ps, setPs] = React.useState(userPs);
   const [peer, setPeer] = React.useState(peerId);
-  const im = useChatContext();
+  const {login, logout} = useChatSdkContext();
 
   if (page === 0) {
     return (
@@ -48,14 +48,13 @@ function SendMessage() {
         <Pressable
           onPress={() => {
             console.log('test:zuoyu:login', id, ps);
-            im.login({
-              userId: id,
-              userToken: ps,
-              usePassword: true,
-              result: res => {
-                console.log('login result', res);
-                console.log('test:zuoyu:error', res);
-                if (res.isOk === true) {
+            login({
+              id: id,
+              pass: ps,
+              type: 'easemob',
+              onResult: res => {
+                console.log('test:zuoyu:login', res);
+                if (res.result) {
                   setPage(1);
                 }
               },
@@ -65,8 +64,13 @@ function SendMessage() {
         </Pressable>
         <Pressable
           onPress={() => {
-            im.logout({
-              result: () => {},
+            logout({
+              onResult: res => {
+                console.log('test:zuoyu:logout', res);
+                if (res.result) {
+                  setPage(0);
+                }
+              },
             });
           }}>
           <Text>{'Logout'}</Text>
@@ -76,11 +80,25 @@ function SendMessage() {
   } else if (page === 1) {
     return (
       <SafeAreaView style={{flex: 1}}>
-        <ConversationDetail
-          convId={peer}
-          convType={0}
-          onBack={() => {
-            setPage(0);
+        <Pressable
+          onPress={() => {
+            logout({
+              onResult: res => {
+                console.log('test:zuoyu:logout', res);
+                if (res.result) {
+                  setPage(0);
+                }
+              },
+            });
+          }}>
+          <Text>{'Logout'}</Text>
+        </Pressable>
+        <ChatFragment
+          screenParams={{
+            params: {
+              chatId: peer,
+              chatType: 0,
+            },
           }}
         />
       </SafeAreaView>
@@ -92,9 +110,17 @@ function SendMessage() {
 
 function App(): React.JSX.Element {
   return (
-    <Container options={{appKey: appKey}}>
+    <UIKitContainer
+      option={{
+        appKey: appKey,
+        autoLogin: false,
+        debugModel: true,
+        pushConfig: undefined,
+        requireAck: undefined,
+        requireDeliveryAck: undefined,
+      }}>
       <SendMessage />
-    </Container>
+    </UIKitContainer>
   );
 }
 
